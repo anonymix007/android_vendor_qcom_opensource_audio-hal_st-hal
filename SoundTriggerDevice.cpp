@@ -27,7 +27,7 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * Changes from Qualcomm Innovation Center are provided under the following license:
- * Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) 2022-2024 Qualcomm Innovation Center, Inc. All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause-Clear
  */
 
@@ -643,7 +643,7 @@ int SoundTriggerDevice::DeregisterSession(SoundTriggerSession* session)
         std::find(session_list_.begin(), session_list_.end(), session);
     if (iter != session_list_.end()) {
         st_session = *iter;
-        if (!st_session) {
+        if (st_session) {
             delete st_session;
             st_session = nullptr;
         }
